@@ -20,4 +20,12 @@ class Band
     def venues
         self.concerts.map{|concert| concert.venue}
     end
+
+    def play_in_venue(venue, date)
+        Concert.new(date,self,venue)
+    end
+
+    def all_introductions
+        self.concerts.map{|concert| concert.introduction}
+    end
 end
