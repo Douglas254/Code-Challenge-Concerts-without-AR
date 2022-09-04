@@ -12,4 +12,12 @@ class Band
     def self.all
         @@all
     end
+
+    def concerts
+        concert.all.filter{|concert| concert.band==self}
+    end
+
+    def venues
+        self.concerts.map{|concert| concert.venue}
+    end
 end

@@ -12,4 +12,13 @@ class Venue
     def self.all
         @@all
     end
+
+    # return all concerts belonging to the venue 
+    def concerts
+        Concert.all.filter{|concert| concert.venue==self}
+    end
+
+    def bands 
+        self.concerts.map{|concert| concert.band}
+    end
 end
